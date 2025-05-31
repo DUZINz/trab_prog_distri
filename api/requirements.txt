@@ -1,0 +1,4 @@
+Flask==2.3.3     # Ou a versão mais recente estável
+celery==5.3.6    # Mesma versão do worker
+redis==5.0.4     # Mesma versão do worker
+python-dotenv # Para carregar variáveis de ambiente de um arquivo .env (opcional, bom para dev)

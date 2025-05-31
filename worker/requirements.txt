@@ -1,0 +1,2 @@
+celery==5.3.6 # Ou a versão mais recente estável
+redis==5.0.4  # Ou a versão mais recente estável
