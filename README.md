@@ -20,25 +20,6 @@ sistema_distribuido_python/
 └── README.md                 # Documentação do projeto
 ```
 
-## Pré-requisitos
-
-- Docker
-- Docker Compose
-- Python 3.x
-
-## Instalação
-
-1. Clone o repositório:
-   ```
-   git clone <URL_DO_REPOSITORIO>
-   cd sistema_distribuido_python
-   ```
-
-2. Construa e inicie os containers:
-   ```
-   docker-compose up --build
-   ```
-
 ## Uso
 
 - Acesse a API Flask em `http://localhost:5000`.
