@@ -1,4 +1,4 @@
-from .celery_app import app # Importa a instância Celery de celery_app.py
+from celery_app import app # Importa a instância Celery de celery_app.py
 import time
 
 @app.task(bind=True) # bind=True dá acesso à instância da tarefa (self)

@@ -15,7 +15,7 @@ COPY . .
 
 # Comando para executar o worker Celery
 # O nome 'tasks' deve corresponder ao nome dado ao app Celery e ao módulo de tarefas.
-CMD ["celery", "-A", "tasks", "worker", "-l", "info", "-Q", "default", "-c", "2"]
+CMD ["celery", "-A", "celery_app", "worker", "-l", "info", "-Q", "default", "-c", "2"]
 # -A tasks: Aponta para a instância Celery no módulo tasks (que importa de celery_app)
 # worker: Inicia um worker
 # -l info: Nível de log

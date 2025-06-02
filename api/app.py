@@ -40,7 +40,8 @@ def enviar_tarefa_longa_endpoint():
         # Para que funcione com a estrutura atual, o Celery client precisa saber onde encontrar
         # a definição da tarefa. A forma mais simples para o cliente é apenas enviar o nome.
         # Os workers já sabem como lidar com 'tasks.processar_dados_longos'.
-        tarefa_async = celery_client.send_task('tasks.processar_dados_longos', args=[dados])
+        tarefa_async = celery_client.send_task('tasks.processar_dados_longos', args=[dados], queue='default')
+        # O 'return' DEVE estar em uma nova linha, devidamente indentado:
         return jsonify({"mensagem": "Tarefa longa enviada!", "id_tarefa": tarefa_async.id}), 202
     except Exception as e:
         return jsonify({"erro": f"Erro ao enviar tarefa: {str(e)}"}), 500
@@ -55,7 +56,7 @@ def enviar_tarefa_simples_endpoint():
             return jsonify({"erro": "Valores 'x' e 'y' são obrigatórios"}), 400
 
         # Envia a tarefa para a fila
-        tarefa_async = celery_client.send_task('tasks.tarefa_simples', args=[int(x), int(y)])
+        tarefa_async = celery_client.send_task('tasks.tarefa_simples', args=[int(x), int(y)], queue='default')
         return jsonify({"mensagem": "Tarefa simples enviada!", "id_tarefa": tarefa_async.id}), 202
     except Exception as e:
         return jsonify({"erro": f"Erro ao enviar tarefa: {str(e)}"}), 500
