@@ -3,7 +3,6 @@ from celery import Celery
 from celery.result import AsyncResult
 import os
 
-# Configuração do Flask
 flask_app = Flask(__name__)
 
 # Configuração do Celery Client (para enviar tarefas e verificar resultados)
